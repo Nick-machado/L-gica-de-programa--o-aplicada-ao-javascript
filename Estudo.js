@@ -1,181 +1,177 @@
-// * ********** TIPOS DE VALORES **********
+// ********** TIPOS DE VALORES **********
 
-console.log("********** TIPOS DE VALORES **********")
+console.log("********** TIPOS DE VALORES **********");
 
-// * PRIMITIVOS
+// PRIMITIVOS
+console.log("PRIMITIVOS");
 
-console.log("PRIMITIVOS")
+// 1. String: Armazena textos.
+let usuario = "Carlos";
+console.log("String:", usuario);
 
-// * 1. String: Armazena textos.
-let nome = "Nicholas"; // Exemplo de string
-console.log(nome); // Output: Nicholas
+// 2. Number: Armazena números (inteiros ou decimais).
+let idadeUsuario = 29;
+let peso = 72.5;
+console.log("Number (inteiro):", idadeUsuario);
+console.log("Number (decimal):", peso);
 
-// * 2. Number: Armazena números (inteiros ou decimais).
-let idade = 34; // Exemplo de número inteiro
-let altura = 1.75; // Exemplo de número decimal
-console.log(idade, altura); // Output: 34, 1.75
+// 3. BigInt: Números muito grandes.
+let numeroGigante = 98765432109876543210n;
+console.log("BigInt:", numeroGigante);
 
-// * 3. BigInt: Números muito grandes.
-let grandeNumero = 12345678901234567890n; // Nota: 'n' no final indica BigInt
-console.log(grandeNumero); // Output: 12345678901234567890n
+// 4. Boolean: Armazena verdadeiro ou falso.
+let isOnline = false;
+console.log("Boolean:", isOnline);
 
-// * 4. Boolean: Armazena verdadeiro ou falso.
-let ativo = true; // Exemplo de boolean
-console.log(ativo); // Output: true
+// 5. Undefined: Declarada, mas sem valor.
+let naoDefinido;
+console.log("Undefined:", naoDefinido);
 
-// * 5. Undefined: Declarada, mas sem valor.
-let indefinido;
-console.log(indefinido); // Output: undefined
+// 6. Null: Intencionalmente sem valor.
+let valorNulo = null;
+console.log("Null:", valorNulo);
 
-// * 6. Null: Intencionalmente sem valor.
-let vazio = null;
-console.log(vazio); // Output: null
+// 7. Symbol: Valor único, usado como identificadores.
+let identificador = Symbol("id");
+console.log("Symbol:", identificador);
 
-// * 7. Symbol: Valor único, usado como identificadores.
-let id = Symbol("id");
-console.log(id); // Output: Symbol(id)
+// NÃO PRIMITIVOS (REFERÊNCIA)
+console.log("NÃO PRIMITIVOS (REFERÊNCIA)");
 
-// * NÃO PRIMITIVOS (REFERÊNCIA)
+// 1. Object: Estrutura com propriedades.
+let produto = { nome: "Caneta", preco: 2.5 };
+console.log("Object:", produto);
 
-console.log("NÃO PRIMITIVOS (REFERÊNCIA)")
+// 2. Array: Lista ordenada de valores.
+let frutas = ["maçã", "banana", "uva"];
+console.log("Array:", frutas);
 
-// * 1. Object: Estrutura com propriedades.
-let pessoa = {
-  nome: "Nicholas",
-  idade: 34
-};
-console.log(pessoa.nome); // Output: Nicholas
-
-// * 2. Array: Lista ordenada de valores.
-let numeros = [1, 2, 3];
-console.log(numeros[0]); // Output: 1
-
-// * 3. Function: Blocos de código reutilizáveis.
-function saudacao() {
-    let x = 1 + 1
-    return `O valor é ${x}`;
+// 3. Function: Blocos de código reutilizáveis.
+function somaNumeros(a, b) {
+  return a + b;
 }
-console.log(saudacao()); // Output: Olá!
+console.log("Function:", somaNumeros(3, 4));
 
-// * 4. Date: Representa datas e horários.
-let hoje = new Date();
-console.log(hoje); // Output: Data atual
+// 4. Date: Representa datas e horários.
+let dataAtual = new Date();
+console.log("Date:", dataAtual);
 
-// * 5. Map e Set: Estruturas de dados especializadas.
-let mapa = new Map();
-mapa.set("chave", "valor");
-console.log(mapa.get("chave")); // Output: valor
+// 5. Map e Set: Estruturas de dados especializadas.
+let mapaExemplo = new Map();
+mapaExemplo.set("chave1", "valor1");
+console.log("Map:", mapaExemplo.get("chave1"));
 
-let conjunto = new Set([1, 2, 3]);
-console.log(conjunto.has(2)); // Output: true
+let conjuntoNumeros = new Set([10, 20, 30]);
+console.log("Set:", conjuntoNumeros.has(20));
 
 // ********** FORMAS DE DECLARAÇÃO **********
 
-console.log("********** FORMAS DE DECLARAÇÃO **********")
+console.log("********** FORMAS DE DECLARAÇÃO **********");
 
-// * 1. VAR: Escopo de função, comportamento de hoisting.
-var x = 10; // Declarada e inicializada
+// 1. VAR: Escopo de função, comportamento de hoisting.
+var numero1 = 100;
 if (true) {
-  var x = 20; // Sobrescreve a variável no mesmo escopo
+  var numero1 = 200;
 }
-console.log(x); // Output: 20
+console.log("VAR número1:", numero1);
 
-// * 2. LET: Escopo de bloco, não permite redeclaração.
-let y = 30;
+// 2. LET: Escopo de bloco, não permite redeclaração.
+let numero2 = 300;
 if (true) {
-  let y = 40; // Nova variável (escopo diferente)
-  console.log(y); // Output: 40
+  let numero2 = 400;
+  console.log("LET número2 dentro do bloco:", numero2);
 }
-console.log(y); // Output: 30
+console.log("LET número2 fora do bloco:", numero2);
 
-// * 3. CONST: Escopo de bloco, valor constante (imutável).
-const z = 50;
-// z = 60; // Erro: Não é permitido reatribuir const
-console.log(z); // Output: 50
+// 3. CONST: Escopo de bloco, valor constante (imutável).
+const numero3 = 500;
+// numero3 = 600; // Erro: Não é permitido reatribuir const
+console.log("CONST número3:", numero3);
 
 // Objetos e Arrays declarados com const podem ser modificados internamente.
-const pessoaConst = { nome: "Ana" };
-pessoaConst.nome = "Carlos"; // Permitido, pois estamos alterando a propriedade
-console.log(pessoaConst.nome); // Output: Carlos
+const objetoConst = { cor: "azul" };
+objetoConst.cor = "verde";
+console.log("CONST Object:", objetoConst.cor);
 
 // ********** OPERADORES MATEMÁTICOS **********
 
-console.log("********** OPERADORES MATEMÁTICOS **********")
+console.log("********** OPERADORES MATEMÁTICOS **********");
 
-// * 1. ADIÇÃO (+):
-
-var x = 1 + 1
-console.log(x)
-
-// * 2. SUBTRAÇÃO (-):
-
-var x = 2 - 1
-console.log(x)
-
-// * 3. MULTIPLICAÇÃO (*):
-
-var x = 2 * 2
-console.log(x)
-
-// * 4. DIVISÃO (/):
-
-var x = 6 / 3
-console.log(x)
-
-// * 5. RESTO DA DIVISÃO (%):
-
-var x = 6 % 4
-console.log(x)
-
-// * 6. EXPONENCIAL - ELEVADO (**):
-
-var x = 2 ** 2
-console.log(x)
+console.log("5 + 3 =", 5 + 3); // Adição
+console.log("10 - 6 =", 10 - 6); // Subtração
+console.log("4 * 3 =", 4 * 3); // Multiplicação
+console.log("8 / 2 =", 8 / 2); // Divisão
+console.log("7 % 2 =", 7 % 2); // Resto
+console.log("2 ** 3 =", 2 ** 3); // Exponenciação
 
 // ********** OPERADORES RELACIONAIS **********
 
-console.log("********** OPERADORES RELACIONAIS **********")
+console.log("********** OPERADORES RELACIONAIS **********");
 
-// * 1. IGUAL (valor, não tipo) (==):
+let valorA = 10;
+let valorB = "10";
+let valorC = 20;
 
-var x = 1
-var a = "1"
+console.log("valorA == valorB:", valorA == valorB); // Comparação de valor
+console.log("valorA === valorB:", valorA === valorB); // Comparação de valor e tipo
+console.log("valorA != valorC:", valorA != valorC); // Diferença de valor
+console.log("valorA > valorC:", valorA > valorC); // Maior que
 
-if (x == a) {
-  console.log(true)
+// ********** ESTRUTURAS CONDICIONAIS **********
+
+console.log("********** ESTRUTURAS CONDICIONAIS **********");
+
+let idadeUsuario2 = 16;
+
+if (idadeUsuario2 < 18) {
+  console.log("Menor de idade.");
+} else if (idadeUsuario2 === 18) {
+  console.log("Tem 18 anos.");
 } else {
-  console.log(false)
+  console.log("Maior de idade.");
 }
 
-// * 2. ESTRITAMENTE IGUAL (valor e tipo) (===):
+let permissao = idadeUsuario2 >= 18 ? "Permitido" : "Proibido";
+console.log("Permissão:", permissao);
 
-var x = 1
-var a = "1"
+// ********** LAÇOS DE REPETIÇÃO (LOOPS) **********
 
-if (x === a) {
-  console.log(true)
-} else {
-  console.log(false)
+console.log("********** LAÇOS DE REPETIÇÃO (LOOPS) **********");
+
+// FOR: Número conhecido de iterações
+for (let i = 0; i < 3; i++) {
+  console.log(`Iteração ${i}`);
 }
 
-// * 3. DIFERENTE (valor, não tipo) (!=):
-
-var x = 1
-var a = "1"
-
-if (x != a) {
-  console.log(true)
-} else {
-  console.log(false)
+// WHILE: Repetição enquanto a condição é verdadeira
+let contador2 = 0;
+while (contador2 < 3) {
+  console.log(`Contador: ${contador2}`);
+  contador2++;
 }
 
-// * 4. ESTRITAMENTE DIFERENTE (valor e tipo) (!==):
+// DO...WHILE: Garante uma execução mínima
+let numeroTeste = 3;
+do {
+  console.log(`Número: ${numeroTeste}`);
+  numeroTeste--;
+} while (numeroTeste > 0);
 
-var x = 1
-var a = "1"
+// FOR...OF: Itera sobre elementos de coleções
+let listaNumeros = [1, 2, 3];
+for (const num of listaNumeros) {
+  console.log(num);
+}
 
-if (x !== a) {
-  console.log(true)
-} else {
-  console.log(false)
-} 
+// FOR...IN: Itera sobre as propriedades de um objeto
+let pessoaInfo = { nome: "Carlos", idade: 29 };
+for (const propriedade in pessoaInfo) {
+  console.log(`${propriedade}: ${pessoaInfo[propriedade]}`);
+}
+
+// CONTROLE DE LOOPS: BREAK e CONTINUE
+for (let i = 0; i < 5; i++) {
+  if (i === 3) break; // Sai do loop
+  if (i % 2 === 0) continue; // Pula números pares
+  console.log(i);
+}
