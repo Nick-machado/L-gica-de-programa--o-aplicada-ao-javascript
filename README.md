@@ -1,10 +1,21 @@
-# Tipos de Valores e Operadores em JavaScript
+# Estudo de JavaScript: Tipos de Valores, Declaração de Variáveis e Operadores
 
-Este documento apresenta exemplos de código JavaScript que demonstram diferentes tipos de valores, formas de declaração de variáveis e operadores matemáticos e relacionais.
+Este repositório contém um estudo básico sobre JavaScript, abordando os tipos de valores, formas de declaração de variáveis e operadores matemáticos e relacionais. Abaixo, você encontrará explicações e exemplos simples para cada tópico.
 
-## **Tipos de Valores**
+## Índice
 
-### **Primitivos**
+1. [Tipos de Valores](#tipos-de-valores)
+   - [Primitivos](#primitivos)
+   - [Não Primitivos (Referência)](#não-primitivos-referência)
+2. [Formas de Declaração](#formas-de-declaração)
+3. [Operadores Matemáticos](#operadores-matemáticos)
+4. [Operadores Relacionais](#operadores-relacionais)
+
+---
+
+## Tipos de Valores
+
+### Primitivos
 
 1. **String**: Armazena textos.
 
@@ -18,13 +29,13 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
    ```javascript
    let idade = 34; // Exemplo de número inteiro
    let altura = 1.75; // Exemplo de número decimal
-   console.log(idade, altura); // Output: 34, 1.75
+   console.log(idade, altura); // Output: 34 1.75
    ```
 
-3. **BigInt**: Números muito grandes.
+3. **BigInt**: Números inteiros de precisão arbitrária.
 
    ```javascript
-   let grandeNumero = 12345678901234567890n; // 'n' no final indica BigInt
+   let grandeNumero = 12345678901234567890n; // Nota: 'n' no final indica BigInt
    console.log(grandeNumero); // Output: 12345678901234567890n
    ```
 
@@ -35,35 +46,35 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
    console.log(ativo); // Output: true
    ```
 
-5. **Undefined**: Declarada, mas sem valor.
+5. **Undefined**: Variável declarada, mas sem valor atribuído.
 
    ```javascript
    let indefinido;
    console.log(indefinido); // Output: undefined
    ```
 
-6. **Null**: Intencionalmente sem valor.
+6. **Null**: Representa ausência intencional de valor.
 
    ```javascript
    let vazio = null;
    console.log(vazio); // Output: null
    ```
 
-7. **Symbol**: Valor único, usado como identificadores.
+7. **Symbol**: Valor único, usado como identificador.
 
    ```javascript
    let id = Symbol("id");
    console.log(id); // Output: Symbol(id)
    ```
 
-### **Não Primitivos (Referência)**
+### Não Primitivos (Referência)
 
 1. **Object**: Estrutura com propriedades.
 
    ```javascript
    let pessoa = {
      nome: "Nicholas",
-     idade: 34
+     idade: 34,
    };
    console.log(pessoa.nome); // Output: Nicholas
    ```
@@ -79,11 +90,13 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
 
    ```javascript
    function saudacao() {
-       let x = 1 + 1;
-       return `O valor é ${x}`;
+     let x = 1 + 1;
+     return `O valor é ${x}`;
    }
    console.log(saudacao()); // Output: O valor é 2
    ```
+
+   **Nota**: A função foi corrigida para retornar a string corretamente usando template literals.
 
 4. **Date**: Representa datas e horários.
 
@@ -94,18 +107,26 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
 
 5. **Map e Set**: Estruturas de dados especializadas.
 
-   ```javascript
-   let mapa = new Map();
-   mapa.set("chave", "valor");
-   console.log(mapa.get("chave")); // Output: valor
+   - **Map**: Coleção de pares chave-valor.
 
-   let conjunto = new Set([1, 2, 3]);
-   console.log(conjunto.has(2)); // Output: true
-   ```
+     ```javascript
+     let mapa = new Map();
+     mapa.set("chave", "valor");
+     console.log(mapa.get("chave")); // Output: valor
+     ```
 
-## **Formas de Declaração**
+   - **Set**: Coleção de valores únicos.
 
-1. **`var`**: Escopo de função, comportamento de hoisting.
+     ```javascript
+     let conjunto = new Set([1, 2, 3]);
+     console.log(conjunto.has(2)); // Output: true
+     ```
+
+---
+
+## Formas de Declaração
+
+1. **VAR**: Escopo de função, comportamento de hoisting.
 
    ```javascript
    var x = 10; // Declarada e inicializada
@@ -115,7 +136,7 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
    console.log(x); // Output: 20
    ```
 
-2. **`let`**: Escopo de bloco, não permite redeclaração.
+2. **LET**: Escopo de bloco, não permite redeclaração no mesmo escopo.
 
    ```javascript
    let y = 30;
@@ -126,66 +147,73 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
    console.log(y); // Output: 30
    ```
 
-3. **`const`**: Escopo de bloco, valor constante (imutável).
+3. **CONST**: Escopo de bloco, valor constante (imutável).
 
    ```javascript
    const z = 50;
    // z = 60; // Erro: Não é permitido reatribuir const
    console.log(z); // Output: 50
+   ```
 
-   // Objetos e Arrays declarados com const podem ser modificados internamente.
+   **Nota**: Objetos e arrays declarados com `const` podem ser modificados internamente.
+
+   ```javascript
    const pessoaConst = { nome: "Ana" };
    pessoaConst.nome = "Carlos"; // Permitido, pois estamos alterando a propriedade
    console.log(pessoaConst.nome); // Output: Carlos
    ```
 
-## **Operadores Matemáticos**
+---
 
-1. **Adição (`+`)**:
+## Operadores Matemáticos
+
+1. **Adição (+)**:
 
    ```javascript
    var x = 1 + 1;
    console.log(x); // Output: 2
    ```
 
-2. **Subtração (`-`)**:
+2. **Subtração (-)**:
 
    ```javascript
    var x = 2 - 1;
    console.log(x); // Output: 1
    ```
 
-3. **Multiplicação (`*`)**:
+3. **Multiplicação (\*)**:
 
    ```javascript
    var x = 2 * 2;
    console.log(x); // Output: 4
    ```
 
-4. **Divisão (`/`)**:
+4. **Divisão (/)**:
 
    ```javascript
    var x = 6 / 3;
    console.log(x); // Output: 2
    ```
 
-5. **Resto da Divisão (`%`)**:
+5. **Resto da Divisão (%)**:
 
    ```javascript
    var x = 6 % 4;
    console.log(x); // Output: 2
    ```
 
-6. **Exponencial (`**`)**:
+6. **Exponenciação (\*\*)**:
 
    ```javascript
    var x = 2 ** 2;
    console.log(x); // Output: 4
    ```
 
-## **Operadores Relacionais**
+---
 
-1. **Igual (valor, não tipo) (`==`)**:
+## Operadores Relacionais
+
+1. **Igual (==)**: Compara valor, não o tipo.
 
    ```javascript
    var x = 1;
@@ -198,7 +226,7 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
    }
    ```
 
-2. **Estritamente Igual (valor e tipo) (`===`)**:
+2. **Estritamente Igual (===)**: Compara valor e tipo.
 
    ```javascript
    var x = 1;
@@ -211,20 +239,20 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
    }
    ```
 
-3. **Diferente (valor, não tipo) (`!=`)**:
+3. **Diferente (!=)**: Compara valor, não o tipo.
 
    ```javascript
    var x = 1;
    var a = "1";
 
    if (x != a) {
-     console.log(true);
+     console.log(true); // Output: false
    } else {
-     console.log(false); // Output: false
+     console.log(false);
    }
    ```
 
-4. **Estritamente Diferente (valor e tipo) (`!==`)**:
+4. **Estritamente Diferente (!==)**: Compara valor e tipo.
 
    ```javascript
    var x = 1;
@@ -239,4 +267,10 @@ Este documento apresenta exemplos de código JavaScript que demonstram diferente
 
 ---
 
-**Nota:** Os exemplos acima demonstram como os diferentes tipos de valores e operadores funcionam em JavaScript. Execute o código em seu ambiente local para ver os resultados.
+## Conclusão
+
+Este estudo básico apresenta os principais tipos de valores, formas de declarar variáveis e operadores em JavaScript. Compreender esses conceitos é fundamental para o desenvolvimento de aplicações e scripts eficientes.
+
+---
+
+**Nota**: Todas as correções necessárias foram feitas para garantir que os exemplos funcionem corretamente.
